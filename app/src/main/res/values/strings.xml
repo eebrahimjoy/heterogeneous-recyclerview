@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">HeterogeneiusRecyclerView</string>
+    <string name="app_name">Robi-10</string>
+    <string name="todo">TODO</string>
+    <string name="search_by_chapter_name_or_author_name">Search by chapter name or author name</string>
 </resources>
