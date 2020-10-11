@@ -64,6 +64,7 @@ public class BookActivity extends AppCompatActivity {
                  objectList.addAll(objects);
              }
              bookAdapter.notifyDataSetChanged();
+            // mixAdapter.notifyDataSetChanged();
          }
      });
     }

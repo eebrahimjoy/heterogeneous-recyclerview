@@ -66,9 +66,9 @@ public class MockRepository {
         objectList.add(new Video("Video 2"));
         objectList.add(new Document("Document 2", "Author 2"));
         objectList.add(new Chapter("Chapter 2", subChapterList2));
-        objectList.add(new Chapter("Chapter 3", subChapterList3));
         objectList.add(new Video("Video 3"));
         objectList.add(new Document("Document 3", "Author 3"));
+        objectList.add(new Chapter("Chapter 3", subChapterList3));
 
         data.postValue(objectList);
 

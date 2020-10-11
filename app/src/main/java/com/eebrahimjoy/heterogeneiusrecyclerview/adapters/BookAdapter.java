@@ -19,10 +19,6 @@ public class BookAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<Object> listGroup;
 
-    private final int TYPE_TRIP = 1;
-    private final int TYPE_NEWS = 2;
-    private final int TYPE_CHAPTER = 3;
-
     public BookAdapter(Context context, List<Object> listGroup) {
         this.listGroup = listGroup;
         this.context = context;
@@ -52,12 +48,8 @@ public class BookAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        if (listGroup.get(groupPosition) instanceof Chapter) {
             Chapter chapter = (Chapter) listGroup.get(groupPosition);
             return chapter.getSubChapters().get(childPosition);
-        } else {
-            return 0;
-        }
 
     }
 
@@ -73,7 +65,7 @@ public class BookAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 
     @Override

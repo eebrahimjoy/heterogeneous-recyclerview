@@ -17,7 +17,7 @@ import java.util.List;
 
 public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Object> mData;
-    private final int TYPE_TRIP = 1;
+    private final int TYPE_DOCUMENT = 1;
     private final int TYPE_NEWS = 2;
     private final int TYPE_CHAPTER = 3;
 
@@ -30,7 +30,7 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         RecyclerView.ViewHolder viewHolder;
         switch (viewType) {
-            case TYPE_TRIP:
+            case TYPE_DOCUMENT:
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.model_document_item_list, viewGroup, false);
                 viewHolder = new DocumentViewHolder(view);
                 break;
@@ -63,7 +63,7 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 Video video = (Video) mData.get(position);
                 ((NewsView) holder).setNewsValueInUI(video);
                 break;
-            case TYPE_TRIP:
+            case TYPE_DOCUMENT:
                 Document document = (Document) mData.get(position);
                 ((DocumentViewHolder) holder).setTripValueInUI(document);
                 break;
@@ -125,7 +125,7 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public int getItemViewType(int position) {
         if (mData.get(position) instanceof Document) {
-            return TYPE_TRIP;
+            return TYPE_DOCUMENT;
         } else if (mData.get(position) instanceof Video) {
             return TYPE_NEWS;
         } else if (mData.get(position) instanceof Chapter) {
