@@ -4,6 +4,9 @@ public class Document {
     private String title;
     private String subTitle;
 
+    public Document() {
+    }
+
     public Document(String title, String subTitle) {
         this.title = title;
         this.subTitle = subTitle;
