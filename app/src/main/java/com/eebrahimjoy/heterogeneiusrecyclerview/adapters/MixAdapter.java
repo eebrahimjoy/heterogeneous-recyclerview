@@ -18,7 +18,7 @@ import java.util.List;
 public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Object> mData;
     private final int TYPE_DOCUMENT = 1;
-    private final int TYPE_NEWS = 2;
+    private final int TYPE_VIDEO = 2;
     private final int TYPE_CHAPTER = 3;
 
     public MixAdapter(List<Object> itemList) {
@@ -38,9 +38,9 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 View view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.model_chapter_item_list, viewGroup, false);
                 viewHolder = new ChapterViewHolder(view2);
                 break;
-            case TYPE_NEWS:
+            case TYPE_VIDEO:
                 View view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.model_video_item_list, viewGroup, false);
-                viewHolder = new NewsView(view3);
+                viewHolder = new VideoViewHolder(view3);
                 break;
 
             default:
@@ -59,9 +59,9 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 Chapter chapter = (Chapter) mData.get(position);
                 ((ChapterViewHolder) holder).setAddValueInUI(chapter);
                 break;
-            case TYPE_NEWS:
+            case TYPE_VIDEO:
                 Video video = (Video) mData.get(position);
-                ((NewsView) holder).setNewsValueInUI(video);
+                ((VideoViewHolder) holder).setNewsValueInUI(video);
                 break;
             case TYPE_DOCUMENT:
                 Document document = (Document) mData.get(position);
@@ -95,11 +95,11 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    static class NewsView extends RecyclerView.ViewHolder {
+    static class VideoViewHolder extends RecyclerView.ViewHolder {
 
         private TextView videoTitleTV;
 
-        public NewsView(@NonNull View itemView) {
+        public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
             videoTitleTV = itemView.findViewById(R.id.videoTitleTV);
         }
@@ -127,7 +127,7 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (mData.get(position) instanceof Document) {
             return TYPE_DOCUMENT;
         } else if (mData.get(position) instanceof Video) {
-            return TYPE_NEWS;
+            return TYPE_VIDEO;
         } else if (mData.get(position) instanceof Chapter) {
             return TYPE_CHAPTER;
         }
