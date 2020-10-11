@@ -1,4 +1,4 @@
-package com.eebrahimjoy.heterogeneiusrecyclerview.adapter;
+package com.eebrahimjoy.heterogeneiusrecyclerview.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,8 +85,8 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public DocumentViewHolder(@NonNull View itemView) {
             super(itemView);
-            id_document_text_view = itemView.findViewById(R.id.id_document_text_view);
-            id_document_subtitle_text_view = itemView.findViewById(R.id.id_document_subtitle_text_view);
+            id_document_text_view = itemView.findViewById(R.id.documentNameTV);
+            id_document_subtitle_text_view = itemView.findViewById(R.id.documentSubtitleTV);
         }
 
         private void setTripValueInUI(Document t) {
@@ -101,7 +101,7 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public NewsView(@NonNull View itemView) {
             super(itemView);
-            videoTitleTV = itemView.findViewById(R.id.id_video_text_view);
+            videoTitleTV = itemView.findViewById(R.id.videoTitleTV);
         }
 
         private void setNewsValueInUI(Video video) {
@@ -114,7 +114,7 @@ public class MixAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private TextView chapterNameTV;
         public ChapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            chapterNameTV = itemView.findViewById(R.id.id_chapter_text_view);
+            chapterNameTV = itemView.findViewById(R.id.chapterNameTV);
         }
 
         private void setAddValueInUI(Chapter chapter) {

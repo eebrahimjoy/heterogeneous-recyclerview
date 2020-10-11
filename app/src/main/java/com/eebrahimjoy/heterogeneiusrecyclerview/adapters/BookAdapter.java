@@ -1,18 +1,11 @@
-package com.eebrahimjoy.heterogeneiusrecyclerview.adapter;
+package com.eebrahimjoy.heterogeneiusrecyclerview.adapters;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.CheckBox;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.eebrahimjoy.heterogeneiusrecyclerview.R;
 import com.eebrahimjoy.heterogeneiusrecyclerview.models.mixcontent.Chapter;
@@ -20,7 +13,6 @@ import com.eebrahimjoy.heterogeneiusrecyclerview.models.mixcontent.Document;
 import com.eebrahimjoy.heterogeneiusrecyclerview.models.mixcontent.SubChapter;
 import com.eebrahimjoy.heterogeneiusrecyclerview.models.mixcontent.Video;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookAdapter extends BaseExpandableListAdapter {
@@ -44,10 +36,8 @@ public class BookAdapter extends BaseExpandableListAdapter {
     @Override
     public int getChildrenCount(int groupPosition) {
 
-        Chapter chapter = new Chapter();
-
         if (listGroup.get(groupPosition) instanceof Chapter) {
-            chapter = (Chapter) listGroup.get(groupPosition);
+            Chapter chapter = (Chapter) listGroup.get(groupPosition);
             return chapter.getSubChapters().size();
         } else {
             return 0;
@@ -62,9 +52,8 @@ public class BookAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        Chapter chapter = new Chapter();
         if (listGroup.get(groupPosition) instanceof Chapter) {
-            chapter = (Chapter) listGroup.get(groupPosition);
+            Chapter chapter = (Chapter) listGroup.get(groupPosition);
             return chapter.getSubChapters().get(childPosition);
         } else {
             return 0;
@@ -98,8 +87,8 @@ public class BookAdapter extends BaseExpandableListAdapter {
                 convertView = layoutInflater.inflate(R.layout.model_document_item_list, null);
 
                 TextView docText, docSubtileText;
-                docText = convertView.findViewById(R.id.id_document_subtitle_text_view);
-                docSubtileText = convertView.findViewById(R.id.id_document_text_view);
+                docText = convertView.findViewById(R.id.documentSubtitleTV);
+                docSubtileText = convertView.findViewById(R.id.documentNameTV);
 
                 docText.setText(doc.getTitle());
                 docSubtileText.setText(doc.getSubTitle());
@@ -111,7 +100,7 @@ public class BookAdapter extends BaseExpandableListAdapter {
                 convertView = layoutInflater.inflate(R.layout.model_chapter_item_list, null);
 
                 TextView name;
-                name = convertView.findViewById(R.id.id_chapter_text_view);
+                name = convertView.findViewById(R.id.chapterNameTV);
 
                 name.setText(chap.getName());
             } else if (listGroup.get(groupPosition) instanceof Video) {
@@ -121,7 +110,7 @@ public class BookAdapter extends BaseExpandableListAdapter {
 
 
                 TextView name;
-                name = convertView.findViewById(R.id.id_video_text_view);
+                name = convertView.findViewById(R.id.videoTitleTV);
 
                 name.setText(video.getTitle());
             }

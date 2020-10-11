@@ -1,19 +1,20 @@
 package com.eebrahimjoy.heterogeneiusrecyclerview.viewmodel;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.eebrahimjoy.heterogeneiusrecyclerview.repository.MockRepository;
+import com.eebrahimjoy.heterogeneiusrecyclerview.repositories.MockRepository;
 
 import java.util.List;
 
 public class MockViewModel extends ViewModel {
     private MockRepository mockRepository;
 
-    public MockViewModel() {
-        mockRepository = MockRepository.getInstance();
+    public MockViewModel(MockRepository mockRepository) {
+        this.mockRepository = mockRepository;
     }
 
-    public List<String> getMockData() {
+    public LiveData<List<Object>> getMockData() {
         return mockRepository.mockData();
     }
 }
