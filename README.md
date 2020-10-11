@@ -2,7 +2,7 @@
 
 #Short Preview (GIF)
 
-<gif src="gif/preview.gif">
+![preview](https://user-images.githubusercontent.com/24542463/95682791-1c104780-0c09-11eb-922d-eb52d34bde47.gif)
 
 # Image 1
 <img src="images/1.jpg" width="700" height="1000">
